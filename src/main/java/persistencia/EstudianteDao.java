@@ -24,7 +24,7 @@ public class EstudianteDao extends DaoSupport<Estudiante> {
 		Map<Integer, Object> parameters = new HashMap<>();
 		parameters.put(1, entidad.getNombre());
 		parameters.put(2, entidad.getApellido());
-		parameters.put(3, entidad.getPadron());
+		parameters.put(3, entidad.getCarrera());
 		return parameters;
 	}
 

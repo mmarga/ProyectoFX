@@ -6,7 +6,7 @@ public class Estudiante extends Entidad {
 
 	private String nombre;
 	private String apellido;
-	private String padron;
+	private String carrera;
 	public String getNombre() {
 		return nombre;
 	}
@@ -19,24 +19,24 @@ public class Estudiante extends Entidad {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getPadron() {
-		return padron;
+	public String getCarrera() {
+		return carrera;
 	}
-	public void setPadron(String padron) {
-		this.padron = padron;
+	public void setPadron(String carrera) {
+		this.carrera = carrera;
 	}
 		
 	public Estudiante() {		
 	}
 	
-	public Estudiante(String nombre, String apellido, String padron) {
+	public Estudiante(String nombre, String apellido, String carrera) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.padron = padron;
+		this.carrera = carrera;
 	}
 	@Override
 	public String toString() {
-		return "\nEstudiante [nombre=" + nombre + ", apellido=" + apellido + ", padron=" + padron + "]";
+		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", padron=" + carrera + "]\n";
 	}	
 }

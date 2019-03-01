@@ -18,7 +18,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea layoutX="536.0" layoutY="90.0" prefHeight="460.0" prefWidth="432.0" />
+      <TextArea fx:id="areaTextoResultados" layoutX="536.0" layoutY="90.0" prefHeight="460.0" prefWidth="432.0" />
       <Pane layoutX="25.0" layoutY="90.0" prefHeight="194.0" prefWidth="472.0" style="-fx-border-color: #333333;">
          <children>
             <Text layoutX="38.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GRABAR / ACTUALIZAR">
