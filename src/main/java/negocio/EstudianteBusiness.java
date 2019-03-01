@@ -30,10 +30,30 @@ public class EstudianteBusiness {
     		stringBuilder.append("\n");
 		}    	
     	
-    	return stringBuilder.toString();
-		
-		
+    	return stringBuilder.toString();		
 		
 	}
+	
+	public String consultarPorId(Integer id) throws SQLException {
+		
+		Estudiante estudiante = estudianteDao.obtenerPorId(id);
+		StringBuilder stringBuilder = new StringBuilder();
+		String resultado = "No hay registros";
+		if (estudiante != null) {
+	 		stringBuilder.append("Nombre: ");
+			stringBuilder.append(estudiante.getNombre());
+			stringBuilder.append(", apellido:" );
+			stringBuilder.append(estudiante.getApellido());
+			stringBuilder.append(", carrera:");
+			stringBuilder.append(estudiante.getCarrera());
+			stringBuilder.append("\n");		
+			resultado = stringBuilder.toString();
+		}
+  
+		return resultado;
+		
+	}
+	
+	
 
 }

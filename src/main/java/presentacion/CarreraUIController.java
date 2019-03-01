@@ -31,7 +31,11 @@ public class CarreraUIController {
     private TextField campoId;
 
     @FXML
-    void consutarPorId(ActionEvent event) {
+    void consutarPorId(ActionEvent event) throws SQLException {
+    	
+    	Integer id = Integer.parseInt(campoId.getText());
+    	String resultado = carreraBusiness.ConsultarPorId(id);
+    	areaTextoResultados.setText(resultado);
 
     }
 

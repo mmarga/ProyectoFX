@@ -33,6 +33,13 @@ public class EstudianteUIController {
     @FXML
     public void consutarPorId(ActionEvent event) throws SQLException {
     	
+    	Integer id = Integer.parseInt(campoId.getText());
+    	  	
+    	String resultado = estudianteBusiness.consultarPorId(id);
+    	
+    	areaTextoResultados.setText(resultado);
+    	
+    	
     	
 
     }

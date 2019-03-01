@@ -5,6 +5,8 @@ package presentacion;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.imageio.event.IIOReadWarningListener;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +45,10 @@ public class MateriaUIController {
     private TextField campoId;
 
     @FXML
-    void consutarPorId(ActionEvent event) {
+    void consutarPorId(ActionEvent event) throws SQLException {
+    	
+    	Integer id = Integer.parseInt(campoId.getText());
+    	areaTextoResultados.setText(materiaBusiness.consultarPorId(id));
 
     }
 

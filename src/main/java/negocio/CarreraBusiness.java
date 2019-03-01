@@ -29,5 +29,19 @@ public class CarreraBusiness {
 		
 		return stringBuilder.toString();
 	}
+	
+	public String ConsultarPorId(Integer id) throws SQLException {
+		
+		
+		Carrera carrera = carreraDao.obtenerPorId(id);		
+		StringBuilder stringBuilder = new StringBuilder();
+		String resultado = "No se encontraron registros";
+		if (carrera != null) {
+			stringBuilder.append("Carrera seleccionada: " + carrera.getNombre() + ", número de ID" + carrera.getId());
+			resultado = stringBuilder.toString();
+		}
+			
+		return resultado;
+	}
 
 }

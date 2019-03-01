@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.Materia;
+import persistencia.EstudianteDao;
 import persistencia.MateriaDao;
 import utl.MateriaDuplicadaException;
 import utl.NegocioException;
@@ -29,5 +30,20 @@ public class MateriaBusiness {
 		
 	}
 	   return stringBuilder.toString();
+   }
+   
+   public String consultarPorId(Integer id) throws SQLException {
+	   
+	   Materia materia = materiaDao.obtenerPorId(id);
+	   StringBuilder stringBuilder = new StringBuilder();
+	   String resultado = "No hay registros";
+	   if (materia != null) {
+		   stringBuilder.append("Nombre: "  + materia.getNombre());
+		   stringBuilder.append(",carga horaria: " + materia.getCargaHoraria());
+		   resultado = stringBuilder.toString();
+		
+	}
+	   
+	   return resultado;
    }
 }

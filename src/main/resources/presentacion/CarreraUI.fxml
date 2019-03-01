@@ -44,7 +44,7 @@
             <Button fx:id="botonConsultarTodos" layoutX="83.0" layoutY="60.0" mnemonicParsing="false" onAction="#consutarTodos" text="Consultar" />
             <Button fx:id="botonConsutarPorId" layoutX="366.0" layoutY="60.0" mnemonicParsing="false" onAction="#consutarPorId" text="Consutar" />
             <TextField fx:id="campoId" layoutX="296.0" layoutY="60.0" prefHeight="25.0" prefWidth="59.0" />
-            <Label layoutX="216.0" layoutY="65.0" text="ID Estudiante" />
+            <Label layoutX="216.0" layoutY="65.0" text="ID Carrera" />
             <Label layoutX="44.0" layoutY="65.0" text="Todos" />
          </children>
          <opaqueInsets>
