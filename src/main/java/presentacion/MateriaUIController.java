@@ -1,22 +1,34 @@
 package presentacion;
 
+
+
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import negocio.CarreraBusiness;
-import negocio.EstudianteBusiness;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import negocio.MateriaBusiness;
+import utl.MateriaDuplicadaException;
+import utl.NegocioException;
+import utl.NombreInvalidoException;
 
-public class CarreraUIController {
-	
-	private CarreraBusiness carreraBusiness;
-	
-	 public void setCarreraBusiness(CarreraBusiness carreraBusiness) {
-		this.carreraBusiness = carreraBusiness;
-	}
+
+public class MateriaUIController {
+
+    private MateriaBusiness materiaBusiness;
+    
+    public void setMateriaBusiness(MateriaBusiness materiaBusiness) {
+        this.materiaBusiness = materiaBusiness;
+    }
 
     @FXML
     private TextArea areaTextoResultados;
@@ -39,11 +51,12 @@ public class CarreraUIController {
     void consutarTodos(ActionEvent event) {
     	
     	try {
-			areaTextoResultados.setText(carreraBusiness.consultarTodos());
+			areaTextoResultados.setText(materiaBusiness.consultarTodos());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
     }
+ 
 }

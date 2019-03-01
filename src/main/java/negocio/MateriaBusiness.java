@@ -1,6 +1,8 @@
 package negocio;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dominio.Materia;
 import persistencia.MateriaDao;
@@ -16,25 +18,16 @@ public class MateriaBusiness {
         this.materiaDao = materiaDao;
     }
 
-    public void crearMateria(String nombre, Integer cargaHoraria) throws NegocioException {
-    	
-    	
-
-    	Materia materia = new Materia();
-    	materia.setNombre(nombre);
-    	materia.setCargaHoraria(cargaHoraria);
-    	try {
-    		if (materiaDao.obtenerPorDato("nombre", nombre).size() >= 1) {
-    			throw new MateriaDuplicadaException();
-				
-			}
-			materiaDao.grabar(materia);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-       
-
-
-    }
+   public String consultarTodos() throws SQLException {
+	   List<Materia> listaMateria = new ArrayList<>();
+	   listaMateria = materiaDao.obtenerTodos();
+	   StringBuilder stringBuilder = new StringBuilder();
+	   for (Materia materia : listaMateria) {
+		   stringBuilder.append("Nombre: " + materia.getNombre());
+		   stringBuilder.append(", carga horaria: " + materia.getCargaHoraria());
+		   stringBuilder.append("\n");
+		
+	}
+	   return stringBuilder.toString();
+   }
 }

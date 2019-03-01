@@ -11,9 +11,13 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import negocio.CarreraBusiness;
 import negocio.EstudianteBusiness;
+import negocio.MateriaBusiness;
+import persistencia.CarreraDao;
 import persistencia.ConnectionManager;
 import persistencia.EstudianteDao;
+import persistencia.MateriaDao;
 
 public class UniversidadUIController {
 
@@ -30,6 +34,12 @@ public class UniversidadUIController {
     void abrirVentanaCarreras(ActionEvent event) throws IOException {    	     
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/presentacion/CarreraUI.fxml"));  
             Parent root1 = (Parent) fxmlLoader.load();
+            CarreraUIController controller = fxmlLoader.getController();
+            
+            ConnectionManager connectionManager = new ConnectionManager();
+            CarreraDao carreraDao = new CarreraDao(connectionManager);
+            CarreraBusiness carreraBusiness = new CarreraBusiness(carreraDao);
+            controller.setCarreraBusiness(carreraBusiness);
             Stage stage = new Stage();
             stage.setTitle("CARRERA");
             stage.setScene(new Scene(root1));  
@@ -63,18 +73,22 @@ public class UniversidadUIController {
     void abrirVentanaMaterias(ActionEvent event) {
     	
     	try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/presentacion/MateriaUI.fxml"));   
-              /* 
-             * if "fx:controller" is not set in fxml
-             * fxmlLoader.setController(NewWindowController);
-             */
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("MATERIA");                    
-            stage.setScene(scene);
-            stage.show();
+    		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/presentacion/MateriaUI.fxml"));  
+             Parent root2 = (Parent) fxmlLoader.load();
+             MateriaUIController controller = fxmlLoader.getController();
+             //ID
+             ConnectionManager connectionManager = new ConnectionManager();
+             MateriaDao materiaDao = new MateriaDao(connectionManager);
+             MateriaBusiness materiaBusiness = new MateriaBusiness(materiaDao);
+             controller.setMateriaBusiness(materiaBusiness);
+             
+            
+             Stage stage = new Stage();
+             stage.initModality(Modality.APPLICATION_MODAL);
+             stage.setTitle("MATERIA");      
+             stage.setResizable(false);
+             stage.setScene(new Scene(root2));
+             stage.show();
         } catch (IOException e) {
           e.printStackTrace();
         }

@@ -1,35 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.MaterialUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.MateriaUIController">
    <children>
-      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="270.0" prefWidth="370.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <Text layoutX="448.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARRERA">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="areaTextoResultados" layoutX="536.0" layoutY="90.0" prefHeight="460.0" prefWidth="432.0" />
+      <Pane layoutX="25.0" layoutY="90.0" prefHeight="194.0" prefWidth="472.0" style="-fx-border-color: #333333;">
          <children>
-            <Label text="Nombre" />
-            <Label text="Carga Horaria" GridPane.rowIndex="1" />
-            <TextField fx:id="campoNombre" GridPane.columnIndex="1" />
-            <TextField fx:id="campoCargaHoraria" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="botonGrabar" mnemonicParsing="false" onAction="#grabarMateria" prefHeight="25.0" prefWidth="191.0" text="Grabar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#resetear" prefHeight="25.0" prefWidth="193.0" text="Resetar" GridPane.rowIndex="2" />
+            <Text layoutX="38.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GRABAR / ACTUALIZAR">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
          </children>
-      </GridPane>
-      <Button fx:id="botonNuevaVentana" layoutX="483.0" layoutY="49.0" mnemonicParsing="false" onAction="#nuevaVentana" text="Button" />
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="28.0" layoutY="305.0" prefHeight="118.0" prefWidth="472.0" style="-fx-border-color: #333333;">
+         <children>
+            <Text layoutX="38.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONSULTAR">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="botonConsultarTodos" layoutX="83.0" layoutY="60.0" mnemonicParsing="false" onAction="#consutarTodos" text="Consultar" />
+            <Button fx:id="botonConsutarPorId" layoutX="366.0" layoutY="60.0" mnemonicParsing="false" onAction="#consutarPorId" text="Consutar" />
+            <TextField fx:id="campoId" layoutX="296.0" layoutY="60.0" prefHeight="25.0" prefWidth="59.0" />
+            <Label layoutX="216.0" layoutY="65.0" text="ID Estudiante" />
+            <Label layoutX="44.0" layoutY="65.0" text="Todos" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="29.0" layoutY="436.0" prefHeight="104.0" prefWidth="472.0" style="-fx-border-color: #333333;">
+         <children>
+            <Text layoutX="38.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BORRAR">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Pane>
    </children>
 </AnchorPane>
